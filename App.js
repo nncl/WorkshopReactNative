@@ -6,6 +6,7 @@
 
 import React, {Component} from 'react';
 import {
+    AsyncStorage,
     TouchableOpacity,
     Text,
     View,
@@ -37,6 +38,12 @@ export default class App extends Component {
         repos: []
     };
 
+    async componentDidMount() {
+        const repos = JSON.parse(await AsyncStorage.getItem('@Minicourse:repos')) || [];
+
+        this.setState({repos});
+    }
+
     /**
      * @description
      * Add repo.
@@ -63,6 +70,8 @@ export default class App extends Component {
                 , newRepo
             ]
         });
+
+        await AsyncStorage.setItem('@Minicourse:repos', JSON.stringify(this.state.repos));
     };
 
     render() {
