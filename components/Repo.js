@@ -27,30 +27,4 @@ export default class Repo extends Component {
     }
 }
 
-const styles = {
-    repo: {
-        padding: 20,
-        backgroundColor: '#FFF',
-        height: 120,
-        marginBottom: 20,
-        borderRadius: 5,
-        flexDirection: 'row', // same line
-        alignItems: 'center'
-    },
-    repoImage: {
-        width: 50,
-        height: 50,
-        borderRadius: 25
-    },
-    repoTitle: {
-        fontWeight: 'bold',
-        color: '#333'
-    },
-    repoInfo: {
-        marginLeft: 10
-    },
-    repoAuthor: {
-        fontSize: 12,
-        color: '#999'
-    }
-};
+const styles = require('../stylesheets/styles');

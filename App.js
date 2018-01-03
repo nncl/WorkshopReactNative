@@ -6,8 +6,6 @@
 
 import React, {Component} from 'react';
 import {
-    Platform,
-    StyleSheet,
     TouchableOpacity,
     Text,
     View,
@@ -92,39 +90,4 @@ export default class App extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#333'
-    },
-    header: {
-        height: (Platform.OS === 'ios') ? 70 : 50,
-        paddingTop: (Platform.OS === 'ios') ? 20 : 0,
-        backgroundColor: '#FFF',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexDirection: 'row',
-        paddingHorizontal: 20
-    },
-    headerButton: {
-        fontSize: 24,
-        fontWeight: 'bold'
-    },
-    headerText: {
-        fontSize: 16,
-        fontWeight: 'bold'
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-    repoList: {
-        padding: 20
-    }
-});
+const styles = require('./stylesheets/styles');
