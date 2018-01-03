@@ -18,6 +18,13 @@ export default class NewRepoModal extends Component {
         newRepoText: ''
     };
 
+    _addRepoRemotely = (newRepoText) => {
+        this.props.onAdd(newRepoText);
+        this.setState({
+            newRepoText: ''
+        });
+    };
+
     render() {
         return (
             <Modal animationType="fade"
@@ -43,7 +50,7 @@ export default class NewRepoModal extends Component {
                             </TouchableOpacity>
                             <TouchableOpacity
                                 style={[styles.button, styles.submitButton]}
-                                onPress={() => this.props.onAdd(this.state.newRepoText)}>
+                                onPress={() => this._addRepoRemotely(this.state.newRepoText)}>
                                 <Text style={styles.buttonText}>Add</Text>
                             </TouchableOpacity>
                         </View>
