@@ -13,33 +13,38 @@ import {
     ScrollView
 } from 'react-native';
 
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-    android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import Repo from './components/Repo';
 
-export default class App extends Component<{}> {
+export default class App extends Component {
+
+    state = {
+        repos: [
+            {
+                id: 1,
+                thumbnail: 'https://avatars0.githubusercontent.com/u/189580',
+                title: 'Multer',
+                author: 'expressjs'
+            },
+            {
+                id: 2,
+                thumbnail: 'https://avatars2.githubusercontent.com/u/2151889',
+                title: 'Kue',
+                author: 'Automattic'
+            }
+        ]
+    };
+
     render() {
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
                     <Text style={styles.headerText}>
-                        Minicourse!
+                        React Native Minicourse!
                     </Text>
                 </View>
 
                 <ScrollView contentContainerStyle={styles.repoList}>
-                    <View style={styles.repo}/>
-                    <View style={styles.repo}/>
-                    <View style={styles.repo}/>
-                    <View style={styles.repo}/>
-                    <View style={styles.repo}/>
-                    <View style={styles.repo}/>
-                    <View style={styles.repo}/>
-                    <View style={styles.repo}/>
-                    <View style={styles.repo}/>
+                    { this.state.repos.map(repo => <Repo key={repo.id} data={repo}/>)}
                 </ScrollView>
             </View>
         );
@@ -74,12 +79,5 @@ const styles = StyleSheet.create({
     },
     repoList: {
         padding: 20
-    },
-    repo: {
-        padding: 20,
-        backgroundColor: '#FFF',
-        height: 120,
-        marginBottom: 20,
-        borderRadius: 5
     }
 });
