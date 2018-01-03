@@ -8,6 +8,7 @@ import React, {Component} from 'react';
 import {
     Platform,
     StyleSheet,
+    TouchableOpacity,
     Text,
     View,
     ScrollView
@@ -41,6 +42,11 @@ export default class App extends Component {
                     <Text style={styles.headerText}>
                         React Native Minicourse!
                     </Text>
+
+                    <TouchableOpacity onPress={() => {
+                    }}>
+                        <Text style={styles.headerButton}>+</Text>
+                    </TouchableOpacity>
                 </View>
 
                 <ScrollView contentContainerStyle={styles.repoList}>
@@ -60,8 +66,14 @@ const styles = StyleSheet.create({
         height: (Platform.OS === 'ios') ? 70 : 50,
         paddingTop: (Platform.OS === 'ios') ? 20 : 0,
         backgroundColor: '#FFF',
-        justifyContent: 'center',
-        alignItems: 'center'
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: 'row',
+        paddingHorizontal: 20
+    },
+    headerButton: {
+        fontSize: 24,
+        fontWeight: 'bold'
     },
     headerText: {
         fontSize: 16,
